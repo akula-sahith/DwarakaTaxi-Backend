@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import bookingRoutes from "./routes/Booking.routes.js";
-import { errorHandler } from "./middlewares/error.middleware.js";
+import bookingRoutes from "./routes/BookingRoutes.js";
+import { errorHandler } from "./middlewares/ErrorMiddleware.js";
 
 const app = express();
 
