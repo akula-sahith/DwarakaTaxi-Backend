@@ -12,6 +12,12 @@ app.use(helmet());
 app.use(express.json());
 app.use(morgan("dev"));
 
+const router = express.Router();
+
+app.use("/",router.get("/", (req, res) => {
+  res.send("Server is running 🚀");
+}));
+
 app.use("/api/bookings", bookingRoutes);
 
 app.use(errorHandler);
