@@ -1,0 +1,11 @@
+export const TRIP_TYPES = {
+  ONE_WAY: "ONE_WAY",
+  ROUND_TRIP: "ROUND_TRIP",
+};
+
+export const BOOKING_STATUS = {
+  NEW: "NEW",
+  CONFIRMED: "CONFIRMED",
+  COMPLETED: "COMPLETED",
+  CANCELLED: "CANCELLED",
+};
