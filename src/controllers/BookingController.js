@@ -1,8 +1,8 @@
 import { validationResult } from "express-validator";
 import BookingModel from "../models/BookingModel.js";
-import { notifyAdmin } from "../services/whatsapp.service.js";
+import { notifyAdmin } from "../services/WhatsappService.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { asyncHandler } from "../middlewares/async.middleware.js";
+import { asyncHandler } from "../middlewares/AsyncMiddleware.js";
 
 export const createBooking = asyncHandler(async (req, res) => {
   const errors = validationResult(req);
