@@ -1,5 +1,5 @@
 import { validationResult } from "express-validator";
-import BookingModel from "../models/booking.model.js";
+import BookingModel from "../models/BookingModel.js";
 import { notifyAdmin } from "../services/whatsapp.service.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../middlewares/async.middleware.js";
