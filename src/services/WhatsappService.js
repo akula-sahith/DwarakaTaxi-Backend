@@ -1,21 +1,25 @@
 import admin from "firebase-admin";
-import path from "path";
-import { fileURLToPath } from "url";
+// import path from "path";
+// import { fileURLToPath } from "url";
 import AdminModel from "../models/AdminModel.js";
 
 // ES module __dirname fix
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 // ✅ Correct path: SAME folder
 if (!admin.apps.length) {
+  const serviceAccount = JSON.parse(
+    process.env.FIREBASE_SERVICE_ACCOUNT
+  );
+
+  serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, "\n");
+
   admin.initializeApp({
-    credential: admin.credential.cert(
-      path.join(__dirname, "KartikeyaTravels.json")
-    ),
+    credential: admin.credential.cert(serviceAccount),
   });
 
-  console.log("🔥 Firebase Admin initialized");
+  console.log("🔥 Firebase Admin initialized via ENV");
 }
 
 export const notifyAdmin = async (booking) => {
