@@ -3,15 +3,19 @@ import path from "path";
 import { fileURLToPath } from "url";
 import AdminModel from "../models/AdminModel.js";
 
+// ES module __dirname fix
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// ✅ Correct path: SAME folder
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(
-      path.join(__dirname, "../../firebase-admin-key.json")
+      path.join(__dirname, "KartikeyaTravels.json")
     ),
   });
+
+  console.log("🔥 Firebase Admin initialized");
 }
 
 export const notifyAdmin = async (booking) => {
@@ -27,7 +31,7 @@ export const notifyAdmin = async (booking) => {
   const message = {
     notification: {
       title: "🚨 New Booking Received",
-      body: `${booking.pickupLocation} → ${booking.dropLocation}`,
+      body: `${booking.pickup} → ${booking.drop}`,
     },
     data: {
       bookingId: booking._id.toString(),
@@ -35,11 +39,26 @@ export const notifyAdmin = async (booking) => {
     tokens,
   };
 
-  const response = await admin
-    .messaging()
-    .sendEachForMulticast(message);
+  try {
+    const response = await admin
+      .messaging()
+      .sendEachForMulticast(message);
 
-  console.log(
-    `📲 Push | Success: ${response.successCount}, Failed: ${response.failureCount}`
-  );
+    console.log(
+      `📲 Push summary | Success: ${response.successCount}, Failed: ${response.failureCount}`
+    );
+
+    // 🔍 Detailed failure logs
+    response.responses.forEach((resp, idx) => {
+      if (!resp.success) {
+        console.error("❌ Push failed for token:", tokens[idx]);
+        console.error("   ↳ Code:", resp.error.code);
+        console.error("   ↳ Message:", resp.error.message);
+      }
+    });
+  } catch (error) {
+    console.error("🔥 FCM send failed completely");
+    console.error("Code:", error.code);
+    console.error("Message:", error.message);
+  }
 };

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "kartikeyatravels-f2fa0",
+  "private_key_id": "a61d6e0a6341601b96912ad00ff3272a2a3cbc22",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCyAqeahdJYX41C\nzJetU4k4O2AqH6FZ8iGIStGVBZcCkZAQJHFQL/nk3k0i+SAwcHn7jgIvemHKHels\n9njwgqOyJyNpJdX4pnbaSmTqg1zYi7AAnqVFxogycaCuq2eA+rUh/kFIufyTbjuI\nI0b1F0rGB2Rcm5tsib1lLNlgQ15kQ9dUvRtjwARGwmoYO6HJO84jaeXs42Y4jQEs\nGfQVHwDfcEruBD+zz+dmu7vsIecYFch31T1z8y6o0fHCSfeAvikH5dbNntFen0wt\nHXw0HtDsHc0EamZihNus8yb/qEynaloo10Voiij0BkuhnifjHPk1yOdSN/kpbL0l\nND7qNaG3AgMBAAECggEAHOJFY9NXADPw7efYrK0jVNZ9khgzzC53tm+9dhrEGAya\nfaQMJuDCAZr4lTYrPPDjOigevqly+KLF34JWuV/ZQ+0J1+PlxkTsgBsWKN9Lz29L\nDa6wTpQaQWUil3UEhG8puOxSl4RmMV3vlvVybA5teZh1dnlhTMlEzAfs9au4wzfg\n2XiMRz/f6UF+BRwd5xD3+CPF32iEXqFg15s1qSzfes1fp8Vy3Dm4oGoXS8HGHcoa\nsheLf34YrkyHydqn5OT/LF5SqgDFhkfwxfcymgdWd3uWxP1frDkRwv7iioASLe2F\ntIA2VT/L6poZ/zTuu7/Zoxes0ZQzY11XVjY/KW8f8QKBgQD2XHIIRtcu6F5/EL49\nkfRfR2KzY1iALleAx7SgVvHowJ/nN11BpeSkMbxHZowFz6wv4OSLuyJny19wvjDc\nLxkV23AwVc4AMl+JI2FkX8ykjpy3IyfQLx1N2C3AozqFkfqxnE8dHqJox+sjzj/c\nxxR82xHCfviGZwK+2Y0V8lw68wKBgQC4+ZuVTvqrEWq5bEJWnCCBRfVuQoQE052o\nPAwH/2cxQtsdiPthMqQ5elxvU1eIOHhp7hTQjznUk9lL8sEZZ2LShuSCTSuuxS2i\nDy0U3OSHlb03LxxwIDlVNUqJ6J6VM/gFVBrkB1BxfWDoJKrAw/UY2+ldIKT3zSIj\n9SRbxXrnLQKBgQCeMeCbhfm5SkcbqsGuQaG86NbtQBbdQGS58gL/jrUJ8176lueQ\nNxlpgfJXmvbA6Ii1ueCoBUNjiQlBGS/Aw5GFIoKY1xBPugj0w75POODsrhLd2no/\nSXG0weMnNulmScXD9Q4sMbayN+W6+T6y4zc5sWZnESc/DriJmqLo+9bTlwKBgDfC\npu//evkOqwlyZR0Ou428tRuj2YBK+n+4ejf++fCTotHodT77sR3SkQLOMNjTjRkB\nuCyWwGwglaSbbTJnRBcKqt/Mu5pXvkXYJVLgs9NbhEqaXQw/6oiRJAMmqId5vw58\nKA8NVWag0RGp2/94Eu6HfHWiXZiFsgD86RTxFveRAoGAd5pNlHWCGTP0CZ0Y8qU+\nkY+SFSP7okYWqXA0p8ACwR67bO/tTUtVwfkl2djzrYcRMFSoD4DUI6Okl2FnLHUL\nj83eQT/UojnkUjfWN4wz48Qr5SQMBsvt82L66TWeo+1HaMSR5DH8lMQYxdYhEqe3\nvKDn4CAqfFE+U1qSx7cIyKs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@kartikeyatravels-f2fa0.iam.gserviceaccount.com",
+  "client_id": "102850065039098140205",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40kartikeyatravels-f2fa0.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
