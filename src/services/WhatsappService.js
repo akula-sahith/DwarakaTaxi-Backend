@@ -1,22 +1,45 @@
-import twilio from "twilio";
+import admin from "firebase-admin";
+import path from "path";
+import { fileURLToPath } from "url";
+import AdminModel from "../models/AdminModel.js";
 
-const client = twilio(
-  process.env.TWILIO_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-console.log("TWILIO_SID:", process.env.TWILIO_SID);
-console.log("TWILIO_AUTH_TOKEN:", process.env.TWILIO_AUTH_TOKEN ? "LOADED" : "MISSING");
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert(
+      path.join(__dirname, "../../firebase-admin-key.json")
+    ),
+  });
+}
 
 export const notifyAdmin = async (booking) => {
-  await client.messages.create({
-    from: process.env.TWILIO_WHATSAPP_FROM,
-    to: process.env.ADMIN_WHATSAPP,
-    body: `🚖 New Booking
-Name: ${booking.name}
-Phone: ${booking.phone}
-Pickup: ${booking.pickup}
-Drop: ${booking.drop}
-Trip: ${booking.tripType}`,
-  });
+  const admins = await AdminModel.find();
+
+  if (admins.length === 0) {
+    console.log("⚠️ No admin devices registered");
+    return;
+  }
+
+  const tokens = admins.map((a) => a.fcmToken);
+
+  const message = {
+    notification: {
+      title: "🚨 New Booking Received",
+      body: `${booking.pickupLocation} → ${booking.dropLocation}`,
+    },
+    data: {
+      bookingId: booking._id.toString(),
+    },
+    tokens,
+  };
+
+  const response = await admin
+    .messaging()
+    .sendEachForMulticast(message);
+
+  console.log(
+    `📲 Push | Success: ${response.successCount}, Failed: ${response.failureCount}`
+  );
 };
